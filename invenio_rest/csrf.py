@@ -280,6 +280,8 @@ class CSRFProtectMiddleware(CSRFTokenMiddleware):
 
             return csrf_validate()
 
+        app.extensions["invenio-csrf"] = self
+
     def before_csrf_protect(self, f):
         """Register functions to be invoked before checking csrf.
 
